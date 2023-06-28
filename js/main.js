@@ -45,7 +45,21 @@ iguale.addEventListener("click",() => {
     pantalla.innerHTML = resultado;
 })
 
-borrar.addEventListener("click", () => {
-    pantalla.innerHTML = "";
-
-})
+borrar.forEach((operador) => {
+    operador.addEventListener("click", () => {
+      const valor = operador.innerHTML;
+      switch (valor) {
+        case "←":
+          op_actual = op_actual.slice(0, -1); // Eliminar el último carácter
+          pantalla.innerHTML = op_actual;
+          break;
+        case "C":
+          op_actual = "";
+          op_anterior = "";
+          opera = "";
+          resultado = "";
+          pantalla.innerHTML = "0";
+          break;
+      }
+    });
+  });
